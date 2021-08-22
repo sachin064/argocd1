@@ -29,14 +29,6 @@ spec:
   - name: pythonroot-testing2
     image: docker.io/rednoob/pythonroot:latest
     env:
-      - name: MODEL_CONTAINER_ID
-        value: dummy_id
-      - name: MODEL_CONTAINER_POD_NAME
-        value: dummy_pod
-      - name: MODELS_STR
-        value: "{{inputs.parameters.modelName}}"
-      - name: MODEL_PATH
-        value: /mnt/models
       - name: MY_NODE_NAME
         valueFrom:
           fieldRef:
