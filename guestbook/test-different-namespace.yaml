@@ -12,8 +12,8 @@ spec:
 ---
 apiVersion: v1
 kind: Secret
+namespace: default
 metadata:
-  namespace: default
   name: secret-basic-auth
 type: kubernetes.io/basic-auth
 stringData:
